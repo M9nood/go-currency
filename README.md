@@ -33,7 +33,7 @@ func main() {
 
     num = 501
     printNumText(num)
-    // OUTPUT : ยี่สิบเอ็ดบาท
+    // OUTPUT : ห้าร้อยหนึ่งบาท
 
     num = 32.01
     printNumText(num)
