@@ -5,18 +5,8 @@ import (
 	"strings"
 )
 
-// func getIntgerDigits(num float64) string {
-// 	numStrSplit := strings.Split(fmt.Sprintf("%v", num), ".")
-// 	return numStrSplit[0]
-// }
-
-// func getDecimalDigits(num float64) string {
-// 	numStrSplit := strings.Split(fmt.Sprintf("%v", num), ".")
-// 	return numStrSplit[1]
-// }
-
 func getIntegerAndDecimalDigits(num float64) (string, string) {
-	numStrSplit := strings.Split(strconv.FormatFloat(num, 'f', 6, 64), ".")
+	numStrSplit := strings.Split(strconv.FormatFloat(num, 'f', -1, 64), ".")
 	if len(numStrSplit) < 2 {
 		return numStrSplit[0], ""
 	}
@@ -45,4 +35,12 @@ func getUnitPosition(pos int) int {
 
 func isMillionPosition(pos int) bool {
 	return pos == MILLION_POSITION
+}
+
+func isOverPrecisionDigit(digit string) bool {
+	return len(digit) > DEFAULT_PRECISION_DIGIT
+}
+
+func isEmptyDigit(num string) bool {
+	return num == "0" || num == ""
 }
