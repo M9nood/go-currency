@@ -9,9 +9,11 @@ import (
 func main() {
 	nums := []float64{
 		124000000000000,
+		124000000520000,
 		21,
 		10,
 		310,
+		501,
 	}
 	for _, n := range nums {
 		printNum(n)
