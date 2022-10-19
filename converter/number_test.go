@@ -33,16 +33,6 @@ func TestReverse(t *testing.T) {
 	str = "100"
 	assert.Equal(t, "001", reverse(str))
 }
-func TestGetMillionUnitCount(t *testing.T) {
-	numStr := "10"
-	assert.Equal(t, 0, getMillionUnitCount(numStr))
-	numStr = "100000"
-	assert.Equal(t, 0, getMillionUnitCount(numStr))
-	numStr = "1000000"
-	assert.Equal(t, 1, getMillionUnitCount(numStr))
-	numStr = "1000000000000"
-	assert.Equal(t, 2, getMillionUnitCount(numStr))
-}
 
 func TestGetUnitPosition(t *testing.T) {
 	assert.Equal(t, 0, getUnitPosition(0))
@@ -51,13 +41,13 @@ func TestGetUnitPosition(t *testing.T) {
 	assert.Equal(t, 3, getUnitPosition(3))
 	assert.Equal(t, 4, getUnitPosition(4))
 	assert.Equal(t, 5, getUnitPosition(5))
-	assert.Equal(t, 0, getUnitPosition(6))
+	assert.Equal(t, 6, getUnitPosition(6))
 	assert.Equal(t, 1, getUnitPosition(7))
 	assert.Equal(t, 2, getUnitPosition(8))
 	assert.Equal(t, 3, getUnitPosition(9))
 	assert.Equal(t, 4, getUnitPosition(10))
 	assert.Equal(t, 5, getUnitPosition(11))
-	assert.Equal(t, 0, getUnitPosition(12))
+	assert.Equal(t, 6, getUnitPosition(12))
 	assert.Equal(t, 3, getUnitPosition(15))
 }
 
