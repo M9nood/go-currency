@@ -17,4 +17,5 @@ func TestConvertToThaiBahtText(t *testing.T) {
 	assert.Equal(t, "สี่สิบบาทจุดสองศูนย์หนึ่งสตางค์", ConvertToThaiBahtText(40.201))
 	assert.Equal(t, "ศูนย์บาท", ConvertToThaiBahtText(0))
 	assert.Equal(t, "สามร้อยสิบบาท", ConvertToThaiBahtText(310))
+	assert.Equal(t, "หนึ่งแสนสองหมื่นสี่พันห้าล้านหกแสนเจ็ดหมื่นสี่พันสามร้อยสี่สิบล้านสี่แสนบาท", ConvertToThaiBahtText(124005674340400000))
 }
