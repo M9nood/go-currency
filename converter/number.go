@@ -26,6 +26,9 @@ func reverse(s string) string {
 }
 
 func getMillionUnitCount(s string) int {
+	if len(s) <= MILLION_POSITION {
+		return 0
+	}
 	return len(s) / MILLION_POSITION
 }
 
