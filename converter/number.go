@@ -25,11 +25,10 @@ func reverse(s string) string {
 	return string(rns)
 }
 
-func getMillionUnitCount(s string) int {
-	return len(s) / MILLION_POSITION
-}
-
 func getUnitPosition(pos int) int {
+	if pos != 0 && pos%MILLION_POSITION == 0 {
+		return MILLION_POSITION
+	}
 	return pos % MILLION_POSITION
 }
 

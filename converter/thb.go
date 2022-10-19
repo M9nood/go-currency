@@ -34,7 +34,6 @@ func getIntegerText(intValueStr string) string {
 	var intText string
 	revIntStr := reverse(intValueStr)
 	intStrRunes := []rune(revIntStr)
-	millionCount := getMillionUnitCount(revIntStr)
 	lengthOfDigit := len(intStrRunes)
 	numTextByPos := make([]string, lengthOfDigit)
 	for i := 0; i < lengthOfDigit; i++ {
@@ -44,8 +43,8 @@ func getIntegerText(intValueStr string) string {
 		}
 
 		numTextByPos[(lengthOfDigit-1)-i] = convertToThaiBaht(intStrRunes[i], nextUnitValue, i, lengthOfDigit)
-		if isMillionPosition(i) {
-			numTextByPos[(lengthOfDigit-1)-i] += millionUnitName(millionCount)
+		if isMillionPosition(i) && numTextByPos[(lengthOfDigit-1)-i] == "" {
+			numTextByPos[(lengthOfDigit-1)-i] += millionUnitName()
 		}
 	}
 	intText = strings.Join(numTextByPos[:], "") + THB_PRIMARY_UNIT
@@ -78,11 +77,11 @@ func getDecimalText(decValueStr string) string {
 func convertToThaiBaht(unitValue, nextUnitValue rune, pos, lengthOfDigit int) string {
 	intVar, _ := strconv.Atoi(string(unitValue))
 	nextIntVar, _ := strconv.Atoi(string(nextUnitValue))
+	unitPos := getUnitPosition(pos)
 	if isZero(float64(intVar)) {
 		return ""
 	}
 	numText := THB_NUMBER_TEXTS[intVar]
-	unitPos := getUnitPosition(pos)
 	if unitPos == TEN_POSITION && intVar == 2 {
 		numText = "ยี่"
 	}
@@ -93,7 +92,7 @@ func convertToThaiBaht(unitValue, nextUnitValue rune, pos, lengthOfDigit int) st
 		numText = "เอ็ด"
 	}
 
-	unitText := THB_UNIT_TEXTS[getUnitPosition(pos)]
+	unitText := THB_UNIT_TEXTS[unitPos]
 
 	return numText + unitText
 }
@@ -103,10 +102,6 @@ func convertToDecimal(decimalValue string) string {
 	return THB_NUMBER_TEXTS[decVar]
 }
 
-func millionUnitName(millionCount int) string {
-	text := ""
-	for i := 0; i < millionCount; i++ {
-		text += THB_UNIT_TEXTS[MILLION_POSITION]
-	}
-	return text
+func millionUnitName() string {
+	return THB_UNIT_TEXTS[MILLION_POSITION]
 }
