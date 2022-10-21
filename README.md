@@ -24,30 +24,40 @@ import (
 
 func main() {
     var num float64 = 124000000000000
+    printTHBString(num)
+    // OUTPUT : 124,000,000,000,000
     printTHBCurrency(num)
     // OUTPUT : ฿ 124,000,000,000,000
     printTHBText(num)
     // OUTPUT : หนึ่งร้อยยี่สิบสี่ล้านล้านบาท
 
     num = 21
+    printTHBString(num)
+    // OUTPUT : 21
     printTHBCurrency(num)
     // OUTPUT : ฿ 21
     printTHBText(num)
     // OUTPUT : ยี่สิบเอ็ดบาท
 
     num = 501
+    printTHBString(num)
+    // OUTPUT : 501
     printTHBCurrency(num)
     // OUTPUT : ฿ 501
     printTHBText(num)
     // OUTPUT : ห้าร้อยหนึ่งบาท
 
     num = 32.01
+    printTHBString(num)
+    // OUTPUT : 32.01
     printTHBCurrency(num)
     // OUTPUT : ฿ 32.01
     printTHBText(num)
     // OUTPUT : สามสิบสองบาทหนึ่งสตางค์
 
     num = 0.1
+    printTHBString(num)
+    // OUTPUT : 0.1
     printTHBCurrency(num)
     // OUTPUT : ฿ 0.1
     printTHBText(num)
@@ -62,6 +72,10 @@ func printTHBText(num float64) {
 
 func printTHBCurrency(num float64) {
 	fmt.Printf("THB : %s\n", currency.THB(num).Currency())
+}
+
+func printTHBString(num float64) {
+	fmt.Printf("THB value: %s\n", currency.THB(num).String())
 }
 
 ```

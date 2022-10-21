@@ -24,16 +24,13 @@ func main() {
 	}
 	for _, n := range nums {
 		fmt.Printf("num : %v\n", strconv.FormatFloat(n, 'f', -1, 64))
-		printTHBCurrency(n)
-		printTHBText(n)
+		printTHB(n)
 		fmt.Println("----------------------")
 	}
 }
 
-func printTHBText(num float64) {
+func printTHB(num float64) {
+	fmt.Printf("THB string: %s\n", currency.THB(num).String())
+	fmt.Printf("THB currency: %s\n", currency.THB(num).Currency())
 	fmt.Printf("THB text: %s\n", currency.THB(num).Text())
-}
-
-func printTHBCurrency(num float64) {
-	fmt.Printf("THB : %s\n", currency.THB(num).Currency())
 }
