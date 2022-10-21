@@ -13,7 +13,7 @@ var (
 	THB_DOT            = "จุด"
 )
 
-func ConvertToThaiBahtText(num float64) string {
+func ThaiBahtText(num float64) string {
 	var currencyText string
 	if isZero(num) {
 		return THB_NUMBER_TEXTS[0] + THB_PRIMARY_UNIT

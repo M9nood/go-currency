@@ -5,10 +5,9 @@ const (
 	TEN_POSITION            = 1
 	UNIT_POSITION           = 0
 	DEFAULT_PRECISION_DIGIT = 2
+	COMMA_POSITION          = 3
 )
 
-type CurrencyFormat string
-
-const (
-	CURRENCY_FORMAT_THB CurrencyFormat = "thb"
-)
+var CurrencyPrefix = map[string]string{
+	"thb": "฿",
+}
