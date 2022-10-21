@@ -46,7 +46,7 @@ func main() {
 }
 
 func printNumText(num float64) {
-	fmt.Printf("%s\n", currency.ThaiBahtText(num))
+	fmt.Printf("%s\n", currency.THB(num).Text())
 }
 
 ```
