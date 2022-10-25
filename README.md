@@ -82,4 +82,4 @@ func printTHBString(num float64) {
 
 
 # License
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/M9nood/go-iterror/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/M9nood/go-currency/blob/master/LICENSE)
